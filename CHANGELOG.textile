@@ -1,0 +1,4 @@
+h1. Change Log for BOS Insert Social Meta
+
+h2. 1.0.0 (March 4, 2015)
+* Initial Release
