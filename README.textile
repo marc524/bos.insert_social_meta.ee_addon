@@ -5,6 +5,8 @@ Twitter Cards meta-data only when the link is coming from those social sites.
 
 h2. Default Usage:
 
+Put the following tag inbetween your <code><head></head></code> tags of your template.
+
 <pre>
  {exp:bos_insert_social_meta title="{title}" description="" image="" admins="123456789,987654321"}
 </pre>
