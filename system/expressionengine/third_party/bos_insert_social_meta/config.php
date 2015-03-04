@@ -21,7 +21,7 @@ define('INSERT_SOCIAL_META_DESCRIPTION', 'Checks user agent and if from Facebook
 define('INSERT_SOCIAL_META_AUTHOR', 'Marc Miller');
 
 // Version: The version number of the add-on.
-define('INSERT_SOCIAL_META_VERSION', '1.0');
+define('INSERT_SOCIAL_META_VERSION', '1.0.1');
 
 // URL: The URL users can go to for help
 define('INSERT_SOCIAL_META_URL', 'github.com/marc524/bos.insert_social_meta.ee_addon');

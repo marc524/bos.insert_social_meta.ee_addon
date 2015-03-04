@@ -22,7 +22,7 @@ class Bos_insert_social_meta
 
 		$output = '';
 		$agent = $_SERVER['HTTP_USER_AGENT'];
-		$url = full_url();
+		$url = $this->full_url();
 		$site = $this->EE->config->item('site_label');
 
 		// do we have variables set?
@@ -77,12 +77,15 @@ class Bos_insert_social_meta
 		if ($width !='') { $facebook_meta .= ' <meta property="og:image:width" content="'.$width.'" />' . "\r\n"; }
 
 		//TWITTER META TAGS
-		$twitter_meta .= ' <meta name="twitter:title" content="'. $title .'" />' . "\r\n";
-		if ($description !='') { $twitter_meta .= ' <meta name="twitter:description" content="'. $description .'" />' . "\r\n"; }
-		$twitter_meta .= ' <meta name="twitter:site" content="@'. $twitter .'" />' . "\r\n";
-		$twitter_meta .= ' <meta name="twitter:creator" content="@'. $twitter .'" />' . "\r\n";
-	  	$twitter_meta .= ' <meta name="twitter:card" content="summary_large_image" />' . "\r\n";
-	  	if ($image !='') { $twitter_meta .= ' <meta name="twitter:image:src" content="'.$image.'" />' . "\r\n"; }
+		if ($twitter !='')
+		{
+			$twitter_meta .= ' <meta name="twitter:title" content="'. $title .'" />' . "\r\n";
+			if ($description !='') { $twitter_meta .= ' <meta name="twitter:description" content="'. $description .'" />' . "\r\n"; }
+			$twitter_meta .= ' <meta name="twitter:site" content="@'. $twitter .'" />' . "\r\n";
+			$twitter_meta .= ' <meta name="twitter:creator" content="@'. $twitter .'" />' . "\r\n";
+		  	$twitter_meta .= ' <meta name="twitter:card" content="summary_large_image" />' . "\r\n";
+		  	if ($image !='') { $twitter_meta .= ' <meta name="twitter:image:src" content="'.$image.'" />' . "\r\n"; }
+	  	}
 
 		if ($viewable == 'yes') {
 			$output .= $facebook_meta;
@@ -128,8 +131,7 @@ class Bos_insert_social_meta
 	ob_start();
 	?>
 The BOS Insert Social Meta will insert the necessary Facebook Open Graph meta-data and
-Twitter Cards meta-data only when the link is coming from those social sites,
-saving your pageload for normal users.
+Twitter Cards meta-data only when the link is coming from those social sites.
 
 -------------------------------------------------------------------------
 Default Usage:
@@ -147,7 +149,7 @@ Options that default to blank
 - description: Custom description field
 - descchars: You can pass in a larger string and it will truncate to this number of characters. Defaults to 300.
 - admins: Facebook admin ID numbers
-- twitter: Twitter handle (leave off @ symbol)
+- twitter: Twitter handle (leave off @ symbol) If left blank, no twitter meta tags will be inserted
 - image: image to share
 - width: width of image
 
@@ -156,7 +158,7 @@ SEO Lite Support
 - entryid: you need to pass in the entry_id to lookup the entry in the SEO Lite table. 
 
 -------------------------------------------------------------------------
-All Parameaters Example:
+All Paramaters Example:
 -------------------------------------------------------------------------
 {exp:bos_insert_social_meta site="{site_name}" title="{title}" description="{body}" descchars="300" image="{image}" width="300" admins="123456789,987654321" twitter="ellislab" seolite="yes" entryid="{entry_id}" viewable="yes"}
 
