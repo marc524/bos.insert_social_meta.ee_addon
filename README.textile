@@ -50,7 +50,7 @@ Here is an example on using Stash embeds for Template Partials and how I use thi
 
 h3. Page Template
 
-<code>
+<pre><code>
   {embed="_layouts/_main"}
   {exp:channel:entries channel="channel" limit="1" dynamic="yes"}
     {exp:stash:set parse_tags="yes"}
@@ -65,18 +65,18 @@ h3. Page Template
       {/stash:content}
     {/exp:stash:set}
   {/exp:channel:entries}
-</code>
+</code></pre>
 
 h3. Main Layout Template
 
-<code>
+<pre><code>
   <!DOCTYPE html>
   <head>
-    <title>{exp:stash:get name='pagetitle'}{site_name}</title>
-    {exp:stash:get name='socialtags'}
+    <title>{exp:stash:get name="pagetitle"}{site_name}</title>
+    {exp:stash:get name="socialtags"}
   </head>
   <body>
-    exp:stash:get name='content'}
+    exp:stash:get name="content"}
   </body>
   </html>
-</code>
+</code></pre>
