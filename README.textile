@@ -4,9 +4,9 @@ The BOS Insert Social Meta will insert the necessary Facebook Open Graph meta-da
 Twitter Cards meta-data only when the link is coming from those social sites.
 
 h2. Default Usage:
-<pre><code>
-	{exp:bos_insert_social_meta title="{title}" description="" image="" admins="123456789,987654321"}
-</code></pre>
+<pre>
+ {exp:bos_insert_social_meta title="{title}" description="" image="" admins="123456789,987654321"}
+</pre>
 
 * <strong>title</strong> is Required.
 
@@ -28,11 +28,12 @@ SEO Lite Support
 * <strong>entryid</strong>: you need to pass in the entry_id to lookup the entry in the SEO Lite table. 
 
 h2. All Paramaters Example:
-<pre><code>
-	{exp:bos_insert_social_meta site="{site_name}" title="{title}" description="{body}" descchars="300" image="{image}" width="300" admins="123456789,987654321" twitter="ellislab" seolite="yes" entryid="{entry_id}" viewable="yes"}
-</code></pre>
+<pre>
+ {exp:bos_insert_social_meta site="{site_name}" title="{title}" description="{body}" descchars="300" image="{image}" width="300" admins="123456789,987654321" twitter="ellislab" seolite="yes" entryid="{entry_id}" viewable="yes"}
+</pre>
 
 h2. Test/Debug:
+
 Facebook Test/Debug
 Visit: https://developers.facebook.com/tools/debug/
 
