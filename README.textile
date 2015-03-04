@@ -76,7 +76,7 @@ h3. Main Layout Template
     {exp:stash:get name="socialtags"}
   </head>
   <body>
-    exp:stash:get name="content"}
+    {exp:stash:get name="content"}
   </body>
   </html>
 </code></pre>
