@@ -5,7 +5,7 @@ Twitter Cards meta-data only when the link is coming from those social sites.
 
 h2. Default Usage:
 
-Put the following tag inbetween your <code><head></head></code> tags of your template.
+Put the following tag inbetween your <code><head></head></code> tags of your template. My preferred way of doing this is to assign this tag as a Stash variable that's down in between your channels entry tags. Then pull that Stash variable up to your head content.
 
 <pre>
  {exp:bos_insert_social_meta title="{title}" description="" image="" admins="123456789,987654321"}
@@ -43,3 +43,40 @@ Visit: https://developers.facebook.com/tools/debug/
 
 Twitter Test/Debug
 Visit: https://cards-dev.twitter.com/validator
+
+h2. Example with Stash
+
+Here is an example on using Stash embeds for Template Partials and how I use this plugin in this case.
+
+h3. Page Template
+
+<code>
+  {embed="_layouts/_main"}
+  {exp:channel:entries channel="channel" limit="1" dynamic="yes"}
+    {exp:stash:set parse_tags="yes"}
+      {stash:pagetitle}{title} | {/stash:pagetitle}
+      {stash:socialtags}{exp:bos_insert_social_meta title="{title}" description="{body}" image="{image}"  twitter="ellislab"}{/stash:socialtags}
+      {stash:content}
+        <div class="page">
+          <h1>{title}</h1>
+          <div class="image-class">{image}</div>
+          <div class="article">{body}</div>
+        </div>
+      {/stash:content}
+    {/exp:stash:set}
+  {/exp:channel:entries}
+</code>
+
+h3. Main Layout Template
+
+<code>
+  <!DOCTYPE html>
+  <head>
+    <title>{exp:stash:get name='pagetitle'}{site_name}</title>
+    {exp:stash:get name='socialtags'}
+  </head>
+  <body>
+    exp:stash:get name='content'}
+  </body>
+  </html>
+</code>
